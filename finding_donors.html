@@ -14406,43 +14406,6 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>11208</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
@@ -15356,7 +15319,7 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><strong>Answer: </strong></p>
-<p>Out of the three models, the best model for this data is Adaboost Classifier. This classifier got the best f-score in all three datasets sizes. Although Logistic regression is faster. However because we probably won't use the model as a real-time application and our concern is to get the best prediction Adaboos is the winner in this case.</p>
+<p>Out of the three models, the best model for this data is Adaboost Classifier. This classifier got the best f-score in all three datasets sizes. Although Logistic regression is faster. However because we probably won't use the model as a real-time application and our concern is to get the best prediction. Adaboos is the winner in this case.</p>
 
 </div>
 </div>
@@ -15373,14 +15336,22 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><strong>Answer: </strong></p>
-<p>Ada-boost classifier combines weak classifier algorithm to form strong classifier. A single algorithm may classify the objects poorly. But if we combine multiple classifiers with selection of training set at every iteration and assigning right amount of weight in final voting, we can have good accuracy score for overall classifier.</p>
-<p>In short:</p>
-<ol>
-<li><p>retrains the algorithm iteratively by choosing the training set based on accuracy of previous training.</p>
-</li>
-<li><p>The weight-age of each trained classifier at any iteration depends on the accuracy achieved.</p>
-</li>
-</ol>
+<p>AdaBoost is a popular boosting technique which helps you combine multiple “weak classifiers” into a single “strong classifier”. A weak classifier is simply a classifier that performs poorly, but performs better than random guessing. A simple example might be classifying a person as male or female based on their height. You could say anyone over 5’ 9” is a male and anyone under that is a female. You’ll misclassify a lot of people that way, but your accuracy will still be greater than 50%.</p>
+<p>AdaBoost can be applied to any classification algorithm, so it’s really a technique that builds on top of other classifiers as opposed to being a classifier itself.</p>
+<h5 id="Explanation:">Explanation:<a class="anchor-link" href="#Explanation:">&#182;</a></h5><p>Below diagram explains the AdaBoost algorithm in a very simple way:</p>
+<ul>
+<li>B1 consist of 10 data points which consist of two types namely plus(+) and minus(-) and 5 of which are plus(+) and other 5 are minus(-) and each one has been assigned equal weight initially. The first model tries to classify the data points and generates a vertical separator line but it wrongly classifies 3 plus(+) as minus(-).</li>
+</ul>
+<ul>
+<li>B2 consists of the 10 data points from the previous model in which the 3 wrongly classified plus(+) are weighted more so that the current model tries more to classify these pluses(+) correctly. This model generates a vertical separator line which correctly classifies the previously wrongly classified pluses(+) but in this attempt, it wrongly classifies two minuses(-).</li>
+</ul>
+<ul>
+<li>B3 consists of the 10 data points from the previous model in which the 3 wrongly classified minus(-) are weighted more so that the current model tries more to classify these minuses(-) correctly. This model generates a horizontal separator line which correctly classifies the previously wrongly classified minuses(-).</li>
+</ul>
+<ul>
+<li>B4 combines together B1, B2 and B3 in order to build a strong prediction model which is much better than any individual model used.</li>
+</ul>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20190324085500/adaboost.jpg" alt="Adaboost"></p>
 
 </div>
 </div>
